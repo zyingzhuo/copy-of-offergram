@@ -41,4 +41,3 @@
 12. In your terminal in the `react-app`, run `npm start`.
 13. Your app should open in your default browser.
 14. If you are planning on developing, please make a fork and create pull requests as necessary.
-15. 
