@@ -39,6 +39,7 @@ export const createProduct=(payload)=>async(dispatch)=>{
     if (response.ok) {
         const product=await response.json()
         dispatch(addProduct(product))
+        console.log(product)
         return product
     }
 

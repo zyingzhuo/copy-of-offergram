@@ -21,6 +21,8 @@ function CreateProductForm () {
     const[price, setPrice]=useState('')
     const[category, setCategory]=useState('')
     const [validationErrors, setValidationErrors]=useState([])
+    const [lng, setLng] = useState(1);
+	  const [lat, setLat] = useState(1);
 
     const validate=()=>{
       const validationErrors=[]
@@ -39,7 +41,9 @@ function CreateProductForm () {
             location,
             description,
             price,
-            category
+            category,
+            lat,
+            lng
         }
 
         const errors=validate();
@@ -106,6 +110,20 @@ function CreateProductForm () {
             <option value="New York City">New York City</option>
           </select>
        </div>
+        <label>Longtitude</label>
+        <input
+						type="number"
+						required
+						value={lng}
+						onChange={(e) => setLng(e.target.value)}
+					/>
+        <label>Latitude</label>
+        <input
+						type="number"
+						required
+						value={lat}
+						onChange={(e) => setLat(e.target.value)}
+					/>
        <div >
         <label >
           description

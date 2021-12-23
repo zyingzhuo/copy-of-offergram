@@ -13,6 +13,7 @@ import ChatForm from '../ChatForm/ChatForm';
 import './OneProductPage.css'
 import CreateReviewForm from '../CreateReviewForm';
 import DirectMessage from '../DirectMessage/DirectMessage'
+import MapContainer from '../Maps';
 
 
 const OneProductPage=()=>{
@@ -27,7 +28,13 @@ const OneProductPage=()=>{
     
    
     const sellerId=currentProduct?.sellerId
-    
+    const GMapSetting = {
+		width: "1200px",
+		height: "400px",
+		lat: currentProduct?.lat,
+		lng: currentProduct?.lng,
+		zoom: 15,
+	};
     
 
     useEffect(()=>{
@@ -91,6 +98,9 @@ const OneProductPage=()=>{
                     {/* <div>{currentProduct?.name}</div> */}
                     <div style={{color:'#121212', fontSize:'1.5rem', fontWeight:'400', lineHeight:'1.5'}}>Description</div>
                     <div>{currentProduct?.description}</div>
+                    <div>
+                        <MapContainer currentProduct={currentProduct} GMapSetting={GMapSetting}/>
+                    </div>
                     {(sesseionUser?.id==productSeller?.id)&&(
                         <>
                             <div style={{display:'flex', marginTop:'3%'}}>
@@ -104,6 +114,7 @@ const OneProductPage=()=>{
                         </>
                     )
                     }
+                   
                 </div>
                 <div className='sellerContainer'>
                     {/* <div>{currentProduct?.name}</div>
