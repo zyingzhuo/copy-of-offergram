@@ -76,7 +76,7 @@ function EditProductForm({productId}) {
           <label>
             location
             <select value={location} onChange={(e)=>setLocation(e.target.value)}>
-              <option value="Los Angels">Los Angels</option>
+              <option value="Los Angeles">Los Angeles</option>
               <option value="New York City">New York City</option>
             </select>
           </label>

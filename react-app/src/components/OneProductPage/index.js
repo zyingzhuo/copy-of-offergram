@@ -33,7 +33,7 @@ const OneProductPage=()=>{
 		height: "400px",
 		lat: currentProduct?.lat,
 		lng: currentProduct?.lng,
-		zoom: 15,
+		zoom: 10,
 	};
     
 
@@ -134,7 +134,7 @@ const OneProductPage=()=>{
                     {/* } */}
                     <div className='sellerPortion'>
                         <div style={{display:'flex',flexDirection:'column', alignItems:'center'}}>
-                            <img src={(productSeller?.profilePic)} style={{height:"50px",width:'50px', borderRadius:'50%'}} />
+                            <img src={(productSeller?.profilePic)} style={{height:"50px",width:'50px', borderRadius:'50%', objectFit:'cover'}} />
                             <div style={{fontSize:'15px'}}>{productSeller?.username}</div>
                         </div>
                         <div>
