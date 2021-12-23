@@ -22,6 +22,8 @@ function EditProductForm({productId}) {
     const[description, setDescription]=useState(currentProduct.description)
     const[price, setPrice]=useState(currentProduct.price)
     const[category, setCategory]=useState(currentProduct.category)
+    const [lng, setLng] = useState(currentProduct.lng);
+	  const [lat, setLat] = useState(currentProduct.lat);
 
    useEffect(()=>{
      dispatch(getProducts())
@@ -38,7 +40,9 @@ function EditProductForm({productId}) {
             location,
             description,
             price,
-            category
+            category,
+            lng,
+            lat
         }
         const product=await dispatch(editProduct(payload, productId));
         if(product) {
@@ -76,6 +80,20 @@ function EditProductForm({productId}) {
               <option value="New York City">New York City</option>
             </select>
           </label>
+          <label>Longtitude</label>
+        <input
+						type="number"
+						required
+						value={lng}
+						onChange={(e) => setLng(e.target.value)}
+					/>
+        <label>Latitude</label>
+        <input
+						type="number"
+						required
+						value={lat}
+						onChange={(e) => setLat(e.target.value)}
+					/>
           <label>
             description
             <input
