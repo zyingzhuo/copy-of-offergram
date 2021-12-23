@@ -1,3 +1,5 @@
+from app.aws_s3 import upload_file_to_s3
+from app.config import Config
 from flask import Blueprint, jsonify, request
 from app.forms.product_form import ProductForm
 from app.forms.review_form import ReviewForm
@@ -20,17 +22,36 @@ def validation_errors_to_error_messages(validation_errors):
 
 @product_routes.route('/', methods=['POST'])
 def add_product():
-    
-    form=ProductForm()
-    form['csrf_token'].data=request.cookies['csrf_token']
-    if form.validate_on_submit():
-        data = Product()
-        form.populate_obj(data)
-        db.session.add(data)
-        db.session.commit()
-        return data.to_dict()
-    return {"errors":validation_errors_to_error_messages(form.errors)}
+    if 'file' not in request.files:
+        return "No user_file key in request.files"
 
+    file=request.files['file']
+
+    if file:
+        file_url=upload_file_to_s3(file, Config.S3_BUCKET)
+        product= Product(
+            sellerId=request.form.get('sellerId'),
+            name=request.form.get('name'),
+            image=file_url,
+            location=request.form.get('location'), 
+            description=request.form.get('description'),
+            price=request.form.get('price'), 
+            category=request.form.get('category'), 
+            lat=request.form.get('lat'), 
+            lng=request.form.get('lng'))
+        db.session.add(product)
+        db.session.commit()
+        return product.to_dict()
+        # form=ProductForm()
+        # form['csrf_token'].data=request.cookies['csrf_token']
+        # if form.validate_on_submit():
+        #     data = Product()
+        #     form.populate_obj(data)
+        #     db.session.add(data)
+        #     db.session.commit()
+        #     return data.to_dict()
+        # return {"errors":validation_errors_to_error_messages(form.errors)}
+    
 
 
 
