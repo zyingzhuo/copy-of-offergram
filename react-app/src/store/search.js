@@ -11,9 +11,9 @@ export const getQuery=(queryString, city)=>async(dispatch)=>{
     const searchData={}
 
     searchData.products=data.products || []
-    console.log('!!!!!!!!!!!!!!!!!',searchData)
+   
     dispatch(setSearch(searchData))
-    console.log('@@@@@@@@@@@@@@@@@@',data.products)
+   
     return data.products
 }
 
@@ -25,7 +25,7 @@ const initialState = {
 const searchReducer = (state = initialState, action) => {
     switch (action.type) {
       case SET_SEARCH:
-          console.log("3333333333",action.products)
+         
         return {products:action.products};
        
       default:

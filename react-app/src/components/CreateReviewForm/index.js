@@ -28,8 +28,7 @@ function CreateReviewForm(){
      setRating(rate)
    }
 
-   console.log(userId)
-   console.log(sellerId)
+  
     const handleSubmit= async(e)=>{
         e.preventDefault();
      

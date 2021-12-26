@@ -19,7 +19,7 @@ function SearchResults() {
     //     dispatch(getQuery())
     // },[dispatch])
     const products=useSelector(state=>state.search.products.products)
-    // useEffect(()=>console.log('???????????????',products),[products])
+   
 
     return(
         <>

@@ -27,8 +27,7 @@ function SingleReview({review, productId}){
 
     }
 
-console.log(review?.reviewerId)
-console.log(currentUserId)
+
 
 return (
     <>

@@ -24,22 +24,35 @@ const deleteProduct=(productId)=>({
 export const getProducts=()=>async(dispatch)=>{
     const response=await fetch('/api/products/')
     const products=await response.json()
-    console.log('!!!!!!!!!!', products)
+  
     dispatch(loadProducts(products.products))
     return products
 }
 
 export const createProduct=(payload)=>async(dispatch)=>{
+    const {sellerId,name,file,location,description,price,category,lng,lat}=payload
+    const form= new FormData();
+    form.append('sellerId', sellerId)
+    form.append('name', name)
+    form.append('file',file)
+    form.append('location', location)
+    form.append('description', description)
+    form.append('price', price)
+    form.append('category', category)
+    form.append('lng', lng)
+    form.append('lat', lat)
+
     const response=await fetch(`/api/products/`, {
         method: 'POST',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(payload)
+        body: form,
+        
     })
-
+    
     if (response.ok) {
         const product=await response.json()
+      
         dispatch(addProduct(product))
-        console.log(product)
+       
         return product
     }
 

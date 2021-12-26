@@ -58,7 +58,7 @@ const OneProductPage=()=>{
     //     totalrating+=reviews[i].rating
     // }
     // const averagerating=totalrating/(reviews.legnth)
-    // console.log(averagerating)
+    
     
     // const sellerId=useSelector(state=>state.product[productId])[sellerId]
     const productSeller=useSelector(state=>state.user[currentProduct?.sellerId])
@@ -89,9 +89,9 @@ const OneProductPage=()=>{
                     <div style={{fontWeight:'400', fontSize:'10px', lineHeight:'1.5'}}>{currentProduct?.location}</div>
                     <div style={{fontWeight:'400', fontSize:'10px', lineHeight:'1.5'}}>{currentProduct?.category}</div>
                     <div style={{gridTemplateColumns:'repeat 1fr'}}>
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px'}} />
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px'}} />
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px'}} />
+                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px',objectFit:'cover'}} />
+                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px', objectFit:'cover'}} />
+                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px', objectFit:'cover'}} />
                     </div>
                     {/* <div>${currentProduct?.price}</div>
                     <div>{currentProduct?.location}</div> */}

@@ -26,7 +26,7 @@ function CreateProductForm () {
 
     const validate=()=>{
       const validationErrors=[]
-      if(name.length>50) validationErrors.push('name must be less than 25 characters');
+      if(name.length>50) validationErrors.push('name must be less than 50 characters');
       if(price<0) validationErrors.push('price must be greater than 0')
       return validationErrors
     }
@@ -37,7 +37,7 @@ function CreateProductForm () {
         const payload={
             sellerId: userId,
             name,
-            image,
+            file:image,
             location,
             description,
             price,
@@ -45,7 +45,7 @@ function CreateProductForm () {
             lat,
             lng
         }
-
+        
         const errors=validate();
         if(errors.length>0) {
           setValidationErrors(errors)
@@ -53,6 +53,7 @@ function CreateProductForm () {
           setValidationErrors([])
         const product=await dispatch(createProduct(payload));
         if(product) {
+         
             history.push(`/products/${product.id}`)
         }
       }
@@ -68,9 +69,10 @@ function CreateProductForm () {
     return (
       <>
       {validationErrors.length>0 && (
-        <div>
-          <ul>
-            {validationErrors.map(error=><li>{error}</li>)}
+        <div className='errors'>
+          <p>The following errors were found:</p>
+          <ul style={{textDecoration:'none'}}>
+            {validationErrors.map(error=><li className='error-list'>{error}</li>)}
           </ul>
         </div>
       )}
@@ -94,9 +96,10 @@ function CreateProductForm () {
           Image
           </label>
           <input
-            type="url"
-            value={image}
-            onChange={(e) => setImage(e.target.value)}
+            type="file"
+            accept='image/*'
+            // value={image}
+            onChange={(e) => setImage(e.target.files[0])}
             required
           />
        </div>

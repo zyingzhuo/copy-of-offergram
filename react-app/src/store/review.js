@@ -21,11 +21,11 @@ const deleteReview=(reviewId)=>({
 export const getReviews=(sellerId)=>async(dispatch)=>{
     const response=await fetch(`/api/reviews/${sellerId}/`)
     const reviews=await response.json()
-    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!!',reviews)
+   
     dispatch(loadReviews(reviews.reviews))
 }
 export const createReview=(payload)=>async(dispatch)=>{
-    // console.log('!!!!!!!!',payload.revieweeId)
+   
     const response=await fetch(`/api/reviews`,{
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
@@ -76,7 +76,7 @@ const reviewReducer=(state=initialState, action)=>{
         }
         case ADD_REVIEW: {
             const newState={...state}
-            console.log(action.review)
+           
             newState[action.review.id]=action.review
             return newState
         }
