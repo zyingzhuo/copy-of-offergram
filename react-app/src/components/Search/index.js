@@ -41,7 +41,7 @@ function Search() {
             onChange={updateLocation}
             >
                 <option value='' > -- select a city -- </option>
-                <option value='Los Angels'>Los Angels</option>
+                <option value='Los Angeles'>Los Angeles</option>
                 <option value='New York City'>New York City</option>
             </select>
 

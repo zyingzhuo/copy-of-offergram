@@ -6,3 +6,18 @@
 
   gap: 15px;
 }
+
+.errors{
+  margin-top: 10vh;
+  text-align: center;
+  list-style-type: none;
+}
+
+.error-list{
+   list-style-type: none;
+   color:red
+}
+
+p{
+  color:red
+}

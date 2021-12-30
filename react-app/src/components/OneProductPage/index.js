@@ -13,6 +13,7 @@ import ChatForm from '../ChatForm/ChatForm';
 import './OneProductPage.css'
 import CreateReviewForm from '../CreateReviewForm';
 import DirectMessage from '../DirectMessage/DirectMessage'
+import MapContainer from '../Maps';
 
 
 const OneProductPage=()=>{
@@ -27,7 +28,13 @@ const OneProductPage=()=>{
     
    
     const sellerId=currentProduct?.sellerId
-    
+    const GMapSetting = {
+		width: "1200px",
+		height: "400px",
+		lat: currentProduct?.lat,
+		lng: currentProduct?.lng,
+		zoom: 10,
+	};
     
 
     useEffect(()=>{
@@ -51,7 +58,7 @@ const OneProductPage=()=>{
     //     totalrating+=reviews[i].rating
     // }
     // const averagerating=totalrating/(reviews.legnth)
-    // console.log(averagerating)
+    
     
     // const sellerId=useSelector(state=>state.product[productId])[sellerId]
     const productSeller=useSelector(state=>state.user[currentProduct?.sellerId])
@@ -82,15 +89,18 @@ const OneProductPage=()=>{
                     <div style={{fontWeight:'400', fontSize:'10px', lineHeight:'1.5'}}>{currentProduct?.location}</div>
                     <div style={{fontWeight:'400', fontSize:'10px', lineHeight:'1.5'}}>{currentProduct?.category}</div>
                     <div style={{gridTemplateColumns:'repeat 1fr'}}>
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px'}} />
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px'}} />
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px'}} />
+                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px',objectFit:'cover'}} />
+                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px', objectFit:'cover'}} />
+                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px', objectFit:'cover'}} />
                     </div>
                     {/* <div>${currentProduct?.price}</div>
                     <div>{currentProduct?.location}</div> */}
                     {/* <div>{currentProduct?.name}</div> */}
                     <div style={{color:'#121212', fontSize:'1.5rem', fontWeight:'400', lineHeight:'1.5'}}>Description</div>
                     <div>{currentProduct?.description}</div>
+                    <div>
+                        <MapContainer currentProduct={currentProduct} GMapSetting={GMapSetting}/>
+                    </div>
                     {(sesseionUser?.id==productSeller?.id)&&(
                         <>
                             <div style={{display:'flex', marginTop:'3%'}}>
@@ -104,6 +114,7 @@ const OneProductPage=()=>{
                         </>
                     )
                     }
+                   
                 </div>
                 <div className='sellerContainer'>
                     {/* <div>{currentProduct?.name}</div>
@@ -123,7 +134,7 @@ const OneProductPage=()=>{
                     {/* } */}
                     <div className='sellerPortion'>
                         <div style={{display:'flex',flexDirection:'column', alignItems:'center'}}>
-                            <img src={(productSeller?.profilePic)} style={{height:"50px",width:'50px', borderRadius:'50%'}} />
+                            <img src={(productSeller?.profilePic)} style={{height:"50px",width:'50px', borderRadius:'50%', objectFit:'cover'}} />
                             <div style={{fontSize:'15px'}}>{productSeller?.username}</div>
                         </div>
                         <div>

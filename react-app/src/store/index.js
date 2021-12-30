@@ -6,6 +6,7 @@ import userReducer from './user'
 import reviewReducer from './review'
 import messageReducer from './message';
 import searchReducer from './search';
+import maps from './maps';
 
 const rootReducer = combineReducers({
   session,
@@ -13,7 +14,8 @@ const rootReducer = combineReducers({
   user:userReducer,
   review: reviewReducer,
   message: messageReducer,
-  search: searchReducer
+  search: searchReducer,
+  maps
 });
 
 

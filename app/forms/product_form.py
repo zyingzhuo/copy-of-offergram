@@ -1,7 +1,7 @@
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField, SelectField, SubmitField
-from wtforms.validators import DataRequired, ValidationError
+from wtforms import StringField, IntegerField, SelectField, SubmitField,FloatField
+from wtforms.validators import DataRequired, ValidationError, NumberRange
 from app.models import User
 
 # def name_length(form, field):
@@ -23,8 +23,9 @@ class ProductForm(FlaskForm):
     sellerId=IntegerField('sellerId', validators=[DataRequired()])
     name=StringField('name', validators=[DataRequired()])
     image=StringField('image', validators=[DataRequired()])
-    location=SelectField('location', choices=['Los Angels', 'New York City'], validators=[DataRequired()])
+    location=SelectField('location', choices=['Los Angeles', 'New York City'], validators=[DataRequired()])
     description=StringField('description', validators=[DataRequired()])
     price=IntegerField('price', validators=[DataRequired()])
     category=SelectField('category', choices=['Electronics & Media', 'Home & Garden', 'Clothing,Shoes,& Accessories'], validators=[DataRequired()])
-   
+    lng = FloatField('Longitude', validators=[DataRequired("Please provide the longitude of your listing."), NumberRange(-180, 180, "Minimum longitude is -180 and Maximum is 180.")])
+    lat=FloatField('Latitude',validators=[DataRequired("Please provide the latitude of your listing."),NumberRange(-90, 90, "Minimum latitude is -90 and Maximum is 90.")] )

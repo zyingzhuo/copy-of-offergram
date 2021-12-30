@@ -12,6 +12,8 @@ class Product(db.Model):
   description=db.Column(db.String, nullable=False)
   price=db.Column(db.Integer, nullable=False)
   category=db.Column(db.String, nullable=False)
+  lat=db.Column(db.Float)
+  lng=db.Column(db.Float)
 
   user=db.relationship('User', back_populates='products')
 
@@ -24,5 +26,7 @@ class Product(db.Model):
           'location': self.location,
           'description': self.description,
           'price': self.price,
-          'category': self.category
+          'category': self.category,
+          'lat': self.lat,
+          'lng': self.lng
       }

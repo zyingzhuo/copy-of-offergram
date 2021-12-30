@@ -1,8 +1,8 @@
 """create packages table
 
-Revision ID: 7128f6526c12
+Revision ID: 81fd1e57fd58
 Revises: 
-Create Date: 2021-11-19 16:09:27.867156
+Create Date: 2021-12-22 13:02:45.546261
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '7128f6526c12'
+revision = '81fd1e57fd58'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -47,8 +47,10 @@ def upgrade():
     sa.Column('image', sa.String(), nullable=False),
     sa.Column('location', sa.String(), nullable=False),
     sa.Column('description', sa.String(), nullable=False),
-    sa.Column('price', sa.String(), nullable=False),
+    sa.Column('price', sa.Integer(), nullable=False),
     sa.Column('category', sa.String(), nullable=False),
+    sa.Column('lat', sa.Float(), nullable=True),
+    sa.Column('lng', sa.Float(), nullable=True),
     sa.ForeignKeyConstraint(['sellerId'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )

@@ -17,7 +17,7 @@ def seed_users():
 
     jojo= User(
         username='Jojo', email='jojo@aa.io', password='password',
-        profilePic='https://scontent.flas1-2.fna.fbcdn.net/v/t1.6435-9/181964622_193748319232088_6294252897318227780_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=973b4a&_nc_ohc=Mznw444WJiAAX8nxlmb&_nc_ht=scontent.flas1-2.fna&oh=0e9dbd993ac690a7a2c56f45ba085a70&oe=61C7263A',
+        profilePic='https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80',
         bought=50,
         sold=4
     )
