@@ -54,7 +54,7 @@ const NavBar = () => {
                 </div>
                 <div className='dropdown'>
                     <i className="fas fa-envelope-open-text" ></i>
-                    <span  className='dropbtn'style={{fontSize:'20px',textAlign:'center'}}>Inbox</span>
+                    <span  className='dropbtn'style={{fontSize:'20px',textAlign:'center'}}>Message</span>
                     <div style={{fontSize:'10px'}} className='contentDropdown'>
                     {allUsers?.map((user,ind)=>(
                       <div key={ind}><NavLink to={`/messages/sender/${sessionUser.id}/receiver/${user.id}`}>{user.username}</NavLink></div>

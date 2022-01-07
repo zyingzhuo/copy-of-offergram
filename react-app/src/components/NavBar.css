@@ -125,3 +125,14 @@
   width: 200px;
   margin-right: 5%;
 }
+
+.search-bar:hover, .search-button:hover,.search-select:hover, .search-select:focus, .search-bar:focus, .search-button:focus{
+border: 1.5px solid #009688;
+background-color: white;
+}
+
+.search-bar,.search-select,.search-button{
+  border-radius:5px;
+  height:25px;
+  background-color:#f5f5f5
+}

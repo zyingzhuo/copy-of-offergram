@@ -34,19 +34,24 @@ function Search() {
             value={searchInput}
             placeholder='search here'
             onChange={updateSearchInput}
+           
+            className='search-bar'
             />
 
             <select
             value={location}
             onChange={updateLocation}
+           
+            className='search-select'
             >
                 <option value='' > -- select a city -- </option>
                 <option value='Los Angeles'>Los Angeles</option>
                 <option value='New York City'>New York City</option>
             </select>
 
-            <button style={{border:'1px solid',borderColor:'#00a87e', backgroundColor:'#ffffff',borderRadius:'4px'}}>
-                Search
+            <button className='search-button'>
+                
+                <i class="fas fa-search"></i>
             </button>
            
         </form>
