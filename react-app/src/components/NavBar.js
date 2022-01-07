@@ -50,11 +50,11 @@ const NavBar = () => {
             <div className='rightNav'>
                 <div className='sellNav'>
                     <i className="fas fa-funnel-dollar"></i>
-                    <NavLink to='/selling'style={{textDecoration:'none',fontSize:'20px'}}>Selling</NavLink>
+                    <NavLink to='/selling'style={{textDecoration:'none',fontSize:'20px', color: 'rgb(0, 168, 126)'}}>Selling</NavLink>
                 </div>
                 <div className='dropdown'>
                     <i className="fas fa-envelope-open-text" ></i>
-                    <span  className='dropbtn'style={{fontSize:'20px',textAlign:'center'}}>Inbox</span>
+                    <span  className='dropbtn'style={{fontSize:'20px',textAlign:'center',color: 'rgb(0, 168, 126)'}}>Message</span>
                     <div style={{fontSize:'10px'}} className='contentDropdown'>
                     {allUsers?.map((user,ind)=>(
                       <div key={ind}><NavLink to={`/messages/sender/${sessionUser.id}/receiver/${user.id}`}>{user.username}</NavLink></div>
@@ -65,7 +65,7 @@ const NavBar = () => {
                 {/* <div>welcome {sessionUser?.username}</div> */}
                 
                 <div className='dropdown'>
-                    <img className='dropbtn' src={(sessionUser?.profilePic)} style={{height:"30px",width:'30px', borderRadius:'50%'}} />
+                    <img className='dropbtn' src={(sessionUser?.profilePic)} style={{height:"40px",width:'40px', borderRadius:'50%'}} />
                     <div className='contentDropdown'><div>{sessionUser?.username}</div><LogoutButton /></div>
                 </div>
             </div>
