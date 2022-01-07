@@ -76,23 +76,24 @@ function CreateProductForm () {
           </ul>
         </div>
       )}
-      <form onSubmit={handleSubmit} style={{marginTop:'5%'}}>
+      <form onSubmit={handleSubmit} style={{marginTop:'5%'}} className='product-form'>
         
-              <div className='createProductContainer' style={{ width:'350px', display:'flex', flexDirection:'column'}}>
-                  <div >
+              <div className='createProductContainer' >
+                  
                       <label >
-                        Name of your product
+                        Product Title
                       </label>
                       <input
                           type="text"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
                           required
+                          className='input-area'
                       />
-                  </div>
-                  <div >
+                
+                
                     <label >
-                      Image
+                      Product Image
                       </label>
                     <input
                         type="file"
@@ -101,66 +102,72 @@ function CreateProductForm () {
                         onChange={(e) => setImage(e.target.files[0])}
                         required
                       />
-                </div>
-                <div >
+                
+                
                   <label >
                     location
                     </label>
-                  <select value={location} onChange={(e)=>setLocation(e.target.value)}>
+                  <select value={location} onChange={(e)=>setLocation(e.target.value)}  className='input-area'>
                       <option  value='' > -- select a city -- </option>
                       <option value="Los Angeles">Los Angeles</option>
                       <option value="New York City">New York City</option>
                     </select>
-                </div>
-                <div>
+                
+                
                   <label>Longtitude</label>
                   <input
                       type="number"
                       required
                       value={lng}
                       onChange={(e) => setLng(e.target.value)}
+                      className='input-area'
                     />
-                </div>
-                <div>
+                
+                
                   <label>Latitude</label>
                   <input
                       type="number"
                       required
                       value={lat}
                       onChange={(e) => setLat(e.target.value)}
+                      className='input-area'
                     />
-                </div>
-                <div >
+               
+                
                   <label >
-                    description
+                    Description
                     </label>
                     <input
                       type="text"
                       value={description}
                       onChange={(e) => setDescription(e.target.value)}
                       required
+                      className='input-area'
                     />
-                </div>
+                
                   <label>
-                    price
+                    Price
+                    </label>
                     <input
                       type="number"
                       value={price}
                       onChange={(e) => setPrice(e.target.value)}
                       required
+                      className='input-area'
                     />
-                  </label>
+                 
                   <label>
-                    category
-                    <select value={category} onChange={(e)=>setCategory(e.target.value)}>
+                    Category
+                    </label>
+                    <select value={category} onChange={(e)=>setCategory(e.target.value)}  className='input-area'>
                       <option  value=''> -- select a category -- </option>
                       <option value="Electronics & Media" >Electronics & Media</option>
                       <option value="Home & Garden"  >Home & Garden</option>
                       <option value="Clothing,Shoes,& Accessories"  >Clothing,Shoes,& Accessories</option>
                   </select>
-                  </label>
                   
-                  <button type="submit" style={{border:'1px solid',borderColor:'#00a87e', backgroundColor:'#ffffff',borderRadius:'4px',marginTop:'2%',width:'100px',marginLeft:'20%'}} >Create your product listing</button>
+                  
+                  <button type="submit" className='submit-button' >Create your product listing</button>
                 </div>
       
     </form>
