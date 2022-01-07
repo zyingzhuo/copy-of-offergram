@@ -50,11 +50,11 @@ const NavBar = () => {
             <div className='rightNav'>
                 <div className='sellNav'>
                     <i className="fas fa-funnel-dollar"></i>
-                    <NavLink to='/selling'style={{textDecoration:'none',fontSize:'10px'}}>Selling</NavLink>
+                    <NavLink to='/selling'style={{textDecoration:'none',fontSize:'20px'}}>Selling</NavLink>
                 </div>
                 <div className='dropdown'>
                     <i className="fas fa-envelope-open-text" ></i>
-                    <span  className='dropbtn'style={{fontSize:'10px'}}>Inbox</span>
+                    <span  className='dropbtn'style={{fontSize:'20px',textAlign:'center'}}>Inbox</span>
                     <div style={{fontSize:'10px'}} className='contentDropdown'>
                     {allUsers?.map((user,ind)=>(
                       <div key={ind}><NavLink to={`/messages/sender/${sessionUser.id}/receiver/${user.id}`}>{user.username}</NavLink></div>
