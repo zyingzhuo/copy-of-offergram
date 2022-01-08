@@ -97,15 +97,15 @@ const OneProductPage=()=>{
                     <div>{currentProduct?.location}</div> */}
                     {/* <div>{currentProduct?.name}</div> */}
                     <div style={{color:'#121212', fontSize:'1.5rem', fontWeight:'500', lineHeight:'1.5'}}>Description</div>
-                    <div style={{fontSize:'1.1rem'}}>{currentProduct?.description}</div>
+                    <div className='description-content'>{currentProduct?.description}</div>
                     <div style={{marginBottom:'5%', marginTop:'5%'}}>
                         <MapContainer currentProduct={currentProduct} GMapSetting={GMapSetting}/>
                     </div>
                     {(sesseionUser?.id==productSeller?.id)&&(
                         <>
-                            <div style={{display:'flex', marginTop:'3%'}}>
-                            <button onClick={()=>setEditForm(true)} className='editButton'>edit</button>
-                            <button onClick={onClickDelete} className='deleteButton'>delete</button>
+                            <div style={{display:'flex', marginTop:'3%', marginBottom:'3%'}}>
+                                <button onClick={()=>setEditForm(true)} className='editButton'>edit</button>
+                                <button onClick={onClickDelete} className='deleteButton'>delete</button>
                             </div>
                             {editForm &&(
                                 <EditProductForm productId={productId}/>
@@ -123,7 +123,13 @@ const OneProductPage=()=>{
                     <div>{currentProduct?.category}</div> */}
                     
                     {/* <div>sold by {productSeller?.username}  </div> */}
-                    <button style={{fontWeight:'bold', color:'green', marginBottom:'30px'}} onClick={()=>setChatForm(true)} className='askContainer'><NavLink style={{textDecoration:'none'}} to={`/messages/sender/${sesseionUser?.id}/receiver/${productSeller?.id}`}>Ask</NavLink></button>
+                    
+                    <button   onClick={()=>setChatForm(true)} className='askContainer'>
+                        <NavLink style={{textDecoration:'none'}} to={`/messages/sender/${sesseionUser?.id}/receiver/${productSeller?.id}`}>
+                            Message Seller
+                            </NavLink>
+                    </button>
+                    
                     {/* {chatForm&& (
                         <ChatForm sellerName={sellerName} sellerId={sellerId}/>
                     )} */}
@@ -134,20 +140,22 @@ const OneProductPage=()=>{
                     {/* } */}
                     <div className='sellerPortion'>
                         <div style={{display:'flex',flexDirection:'column', alignItems:'center'}}>
-                            <img src={(productSeller?.profilePic)} style={{height:"50px",width:'50px', borderRadius:'50%', objectFit:'cover'}} />
+                            <img src={(productSeller?.profilePic)} style={{height:"100px",width:'100px', borderRadius:'50%', objectFit:'cover'}} />
                             <div style={{fontSize:'15px'}}>{productSeller?.username}</div>
                         </div>
                         <div>
-                            <div style={{fontSize:'10px', fontWeight:'700'}}>Sold {productSeller?.sold}</div>
-                            <div style={{fontSize:'10px', fontWeight:'700'}}>Bought {productSeller?.bought}</div>
-                            <div style={{fontSize:'10px', fontWeight:'700'}}>reviews ({reviews.length})</div>
+                            <div className='seller-info' >Sold {productSeller?.sold}</div>
+                            <div className='seller-info' >Bought {productSeller?.bought}</div>
+                            <div className='seller-info' >reviews ({reviews.length})</div>
                         </div>
                     </div>
-                    {reviews.map((review)=>(
-                        
-                        <SingleReview review={review} key={review.id} productId={productId}/>
-                        
-                    ))}
+                    <div className='reviews-container'>
+                        {reviews.map((review)=>(
+                            
+                            <SingleReview review={review} key={review.id} productId={productId}/>
+                            
+                        ))}
+                    </div>
                     <CreateReviewForm />
                 </div>
             </div>

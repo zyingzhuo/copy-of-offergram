@@ -31,9 +31,9 @@ function SingleReview({review, productId}){
 
 return (
     <>
-    <div style={{fontSize:'13px'}}>
+    <div style={{fontSize:'1.5rem'}}>
         <div>{review?.comment}</div>
-        <RatingView ratingValue={review?.rating} size='10px'/>
+        <RatingView ratingValue={review?.rating} size='2rem'/>
         {review?.reviewerId==currentUserId&& (
             <div>
                 <button onClick={()=>seteditReview(true)} style={{border:'1px solid',borderColor:'#00a87e', backgroundColor:'#ffffff', borderRadius:'4px'}}>edit review</button>
