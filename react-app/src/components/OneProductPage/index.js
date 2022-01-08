@@ -29,11 +29,11 @@ const OneProductPage=()=>{
    
     const sellerId=currentProduct?.sellerId
     const GMapSetting = {
-		width: "1200px",
+		width: "900px",
 		height: "400px",
 		lat: currentProduct?.lat,
 		lng: currentProduct?.lng,
-		zoom: 10,
+		zoom: 11,
 	};
     
 
@@ -82,34 +82,33 @@ const OneProductPage=()=>{
        
         {/* //{spot?.url} */}
         <div>
-            <div className='mainContainer' style={{marginTop:'5%'}}>
+            <div className='mainContainer' style={{marginTop:'8%'}}>
                 <div className='productContainer'>
-                    <div style={{color: '#121212', fontWeight:'900', lineHeight:'1.333333'}}>{currentProduct?.name}</div>
-                    <div style={{lineHeight:'1.333', fontWeight:'900'}}>${currentProduct?.price}</div>
-                    <div style={{fontWeight:'400', fontSize:'10px', lineHeight:'1.5'}}>{currentProduct?.location}</div>
-                    <div style={{fontWeight:'400', fontSize:'10px', lineHeight:'1.5'}}>{currentProduct?.category}</div>
+                    <div style={{color: '#121212', fontWeight:'900', lineHeight:'1.333333', fontSize:'1.5rem'}}>{currentProduct?.name}</div>
+                    <div style={{lineHeight:'1.333', fontWeight:'900', fontSize:'1.3rem'}}>${currentProduct?.price}</div>
+                    <div className='product-location' >{currentProduct?.location}</div>
+                    <div className='product-category' >{currentProduct?.category}</div>
                     <div style={{gridTemplateColumns:'repeat 1fr'}}>
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px',objectFit:'cover'}} />
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px', objectFit:'cover'}} />
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px', objectFit:'cover'}} />
+                    <img src={(currentProduct?.image)} className='product-image'/>
+                    <img src={(currentProduct?.image)} className='product-image' />
+                    <img src={(currentProduct?.image)} className='product-image' />
                     </div>
                     {/* <div>${currentProduct?.price}</div>
                     <div>{currentProduct?.location}</div> */}
                     {/* <div>{currentProduct?.name}</div> */}
-                    <div style={{color:'#121212', fontSize:'1.5rem', fontWeight:'400', lineHeight:'1.5'}}>Description</div>
-                    <div>{currentProduct?.description}</div>
-                    <div>
+                    <div style={{color:'#121212', fontSize:'1.5rem', fontWeight:'500', lineHeight:'1.5'}}>Description</div>
+                    <div className='description-content'>{currentProduct?.description}</div>
+                    <div style={{marginBottom:'5%', marginTop:'5%'}}>
                         <MapContainer currentProduct={currentProduct} GMapSetting={GMapSetting}/>
                     </div>
                     {(sesseionUser?.id==productSeller?.id)&&(
                         <>
-                            <div style={{display:'flex', marginTop:'3%'}}>
-                            <button onClick={()=>setEditForm(true)} className='editButton'>edit</button>
-                            <button onClick={onClickDelete} className='deleteButton'>delete</button>
+                            <div style={{display:'flex', marginTop:'1%', marginBottom:'3%'}}>
+                                <button onClick={()=>setEditForm(true)} className='editButton'>edit</button>
+                                <button onClick={onClickDelete} className='deleteButton'>delete</button>
                             </div>
                             {editForm &&(
                                 <EditProductForm productId={productId}/>
-                            
                             )}
                         </>
                     )
@@ -123,31 +122,32 @@ const OneProductPage=()=>{
                     <div>{currentProduct?.category}</div> */}
                     
                     {/* <div>sold by {productSeller?.username}  </div> */}
-                    <button style={{fontWeight:'bold', color:'green', marginBottom:'30px'}} onClick={()=>setChatForm(true)} className='askContainer'><NavLink style={{textDecoration:'none'}} to={`/messages/sender/${sesseionUser?.id}/receiver/${productSeller?.id}`}>Ask</NavLink></button>
-                    {/* {chatForm&& (
-                        <ChatForm sellerName={sellerName} sellerId={sellerId}/>
-                    )} */}
-                    {/* {chatForm&& (
-                        <DirectMessage senderId={sesseionUser.id} receiverId={productSeller}/>
-                    ) */}
-
-                    {/* } */}
+                    
+                    <button   onClick={()=>setChatForm(true)} className='askContainer'>
+                        <NavLink style={{textDecoration:'none'}} to={`/messages/sender/${sesseionUser?.id}/receiver/${productSeller?.id}`}>
+                            Message Seller
+                            </NavLink>
+                    </button>
+                    
+                  
                     <div className='sellerPortion'>
                         <div style={{display:'flex',flexDirection:'column', alignItems:'center'}}>
-                            <img src={(productSeller?.profilePic)} style={{height:"50px",width:'50px', borderRadius:'50%', objectFit:'cover'}} />
+                            <img src={(productSeller?.profilePic)} style={{height:"100px",width:'100px', borderRadius:'50%', objectFit:'cover'}} />
                             <div style={{fontSize:'15px'}}>{productSeller?.username}</div>
                         </div>
                         <div>
-                            <div style={{fontSize:'10px', fontWeight:'700'}}>Sold {productSeller?.sold}</div>
-                            <div style={{fontSize:'10px', fontWeight:'700'}}>Bought {productSeller?.bought}</div>
-                            <div style={{fontSize:'10px', fontWeight:'700'}}>reviews ({reviews.length})</div>
+                            <div className='seller-info' >Sold {productSeller?.sold}</div>
+                            <div className='seller-info' >Bought {productSeller?.bought}</div>
+                            <div className='seller-info' >reviews ({reviews.length})</div>
                         </div>
                     </div>
-                    {reviews.map((review)=>(
-                        
-                        <SingleReview review={review} key={review.id} productId={productId}/>
-                        
-                    ))}
+                    <div className='reviews-container'>
+                        {reviews.map((review)=>(
+                            
+                            <SingleReview review={review} key={review.id} productId={productId}/>
+                            
+                        ))}
+                    </div>
                     <CreateReviewForm />
                 </div>
             </div>

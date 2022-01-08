@@ -1,8 +1,8 @@
 .mainContainer{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    justify-content: center;
+    /* align-items: center; */
     /* display: grid;
     grid-template-columns: repeat minmax(200px) */
     
@@ -11,9 +11,9 @@
 .productContainer{
     display: flex;
     flex-direction:column;
-    justify-content: flex-end;
+    justify-content: flex-start;
     width: 60%;
-    
+   
 
 }
 
@@ -23,6 +23,7 @@
     flex-direction: column;
     /* width: 100%; */
     /* justify-content: center; */
+  
 }
 
 .editButton{
@@ -57,11 +58,44 @@
     border-radius: 4px;
     border-color: #00a87e;
     background-color: #ffffff;
-    
+    font-weight: bold;
+    color:green;
+    margin-bottom: 30px;
+    width: 100%;
+    font-size: 1.5rem;
 }
 
 .sellerPortion{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.product-image{
+    
+    height:200px;
+    width:200px;
+    object-fit:cover
+}
+
+.product-location, .product-category{
+    font-weight: 400;
+    font-size: 1rem;
+    line-height: 1.5;
+
+}
+
+.seller-info{
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.reviews-container{
+    margin-top: 7%;
+}
+
+.description-content{
+    font-size: 1.1rem;
+    inline-size: 600px;
 }

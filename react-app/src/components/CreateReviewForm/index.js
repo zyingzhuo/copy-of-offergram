@@ -42,35 +42,34 @@ function CreateReviewForm(){
         if(review) {
             history.push(`/products/${productId}`)
         }
+        setComment('')
+        setRating(0)
     }
     return(
     <>
         <form onSubmit={handleSubmit}>
-          <div className='createReviewContainer'>
-        <label>
-        comment
-        </label>
-        <input
-          type="text"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          required
-          style={{height:'2rem'}}
-        />
-      
-       <label>
-       rating
-       </label>
-       {/* <input
-         type="number"
-         value={rating}
-         onChange={(e) => setRating(e.target.value)}
-         required
-       /> */}
-       <Rating onClick={handleRating} ratingValue={rating}/>
-     
-     <button type="submit" className='askContainer'>Submit your review</button>
-     </div>
+              <div className='createReviewContainer'>
+                  <label>
+                    comment
+                  </label>
+                  <textarea
+                    type="text"
+                    value={comment}
+                    onChange={(e) => setComment(e.target.value)}
+                    required
+                    style={{height:'5rem', borderRadius:'5px'}}
+                  />
+                
+                  <label>
+                    rating
+                  </label>
+                
+                  <Rating onClick={handleRating} ratingValue={rating} size='2rem'/>
+                  
+                  <button type="submit" className='askContainer'>
+                    Submit your review
+                  </button>
+        </div>
      </form>
     </>
    )
