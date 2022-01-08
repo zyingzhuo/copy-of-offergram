@@ -84,21 +84,21 @@ const OneProductPage=()=>{
         <div>
             <div className='mainContainer' style={{marginTop:'8%'}}>
                 <div className='productContainer'>
-                    <div style={{color: '#121212', fontWeight:'900', lineHeight:'1.333333'}}>{currentProduct?.name}</div>
-                    <div style={{lineHeight:'1.333', fontWeight:'900'}}>${currentProduct?.price}</div>
-                    <div style={{fontWeight:'400', fontSize:'10px', lineHeight:'1.5'}}>{currentProduct?.location}</div>
-                    <div style={{fontWeight:'400', fontSize:'10px', lineHeight:'1.5'}}>{currentProduct?.category}</div>
+                    <div style={{color: '#121212', fontWeight:'900', lineHeight:'1.333333', fontSize:'1.5rem'}}>{currentProduct?.name}</div>
+                    <div style={{lineHeight:'1.333', fontWeight:'900', fontSize:'1.3rem'}}>${currentProduct?.price}</div>
+                    <div className='product-location' >{currentProduct?.location}</div>
+                    <div className='product-category' >{currentProduct?.category}</div>
                     <div style={{gridTemplateColumns:'repeat 1fr'}}>
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px',objectFit:'cover'}} />
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px', objectFit:'cover'}} />
-                    <img src={(currentProduct?.image)} style={{height:"200px",width:'150px', objectFit:'cover'}} />
+                    <img src={(currentProduct?.image)} className='product-image'/>
+                    <img src={(currentProduct?.image)} className='product-image' />
+                    <img src={(currentProduct?.image)} className='product-image' />
                     </div>
                     {/* <div>${currentProduct?.price}</div>
                     <div>{currentProduct?.location}</div> */}
                     {/* <div>{currentProduct?.name}</div> */}
-                    <div style={{color:'#121212', fontSize:'1.5rem', fontWeight:'400', lineHeight:'1.5'}}>Description</div>
-                    <div>{currentProduct?.description}</div>
-                    <div>
+                    <div style={{color:'#121212', fontSize:'1.5rem', fontWeight:'500', lineHeight:'1.5'}}>Description</div>
+                    <div style={{fontSize:'1.1rem'}}>{currentProduct?.description}</div>
+                    <div style={{marginBottom:'5%', marginTop:'5%'}}>
                         <MapContainer currentProduct={currentProduct} GMapSetting={GMapSetting}/>
                     </div>
                     {(sesseionUser?.id==productSeller?.id)&&(
