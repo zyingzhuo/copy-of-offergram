@@ -1,12 +1,16 @@
 .DMContainer {
   /* border: 1px solid black; */
-  height: 400px;
-  margin-top: 5%;
+  height: 500px;
+  margin-top: 15%;
+  margin-left:35%;
+  
+  
 }
 
 .messageContainer {
   display: flex;
   align-items: flex-end;
+  
 }
 
 .singleMessage {
@@ -19,17 +23,20 @@
   display: flex;
   align-items: flex-end;
   width: 400px;
- 
+  
 }
 
 .msgPortion {
   height: 350px;
   width: 400px;
   border: 1px solid black;
+  background-color: pink;
+  border-radius: 5px;
 }
 
 .formPortion{
     padding-bottom: 5%;
+    
 }
 
 
