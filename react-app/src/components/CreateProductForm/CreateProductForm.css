@@ -5,8 +5,9 @@
   margin-left: 30%;
   margin-top: 10%;
   gap: 15px;
-  background-color: pink;
+  background-color: #f5f5f5;
   width:50%;
+  border-radius: 5px;
 }
 
 .errors{
