@@ -103,7 +103,7 @@ const OneProductPage=()=>{
                     </div>
                     {(sesseionUser?.id==productSeller?.id)&&(
                         <>
-                            <div style={{display:'flex', marginTop:'3%', marginBottom:'3%'}}>
+                            <div style={{display:'flex', marginTop:'1%', marginBottom:'3%'}}>
                                 <button onClick={()=>setEditForm(true)} className='editButton'>edit</button>
                                 <button onClick={onClickDelete} className='deleteButton'>delete</button>
                             </div>
@@ -130,14 +130,7 @@ const OneProductPage=()=>{
                             </NavLink>
                     </button>
                     
-                    {/* {chatForm&& (
-                        <ChatForm sellerName={sellerName} sellerId={sellerId}/>
-                    )} */}
-                    {/* {chatForm&& (
-                        <DirectMessage senderId={sesseionUser.id} receiverId={productSeller}/>
-                    ) */}
-
-                    {/* } */}
+                  
                     <div className='sellerPortion'>
                         <div style={{display:'flex',flexDirection:'column', alignItems:'center'}}>
                             <img src={(productSeller?.profilePic)} style={{height:"100px",width:'100px', borderRadius:'50%', objectFit:'cover'}} />
