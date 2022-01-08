@@ -43,6 +43,7 @@ function CreateReviewForm(){
             history.push(`/products/${productId}`)
         }
         setComment('')
+        setRating(0)
     }
     return(
     <>
