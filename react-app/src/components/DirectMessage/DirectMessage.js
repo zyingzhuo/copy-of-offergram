@@ -106,7 +106,7 @@ return (user && (
                 placeholder='Message'
                 value={messageInput}
                 onChange={(e)=>setMessageInput(e.target.value)}
-                style={{width:'400px', height:'70px',backgroundColor:'pink'}}
+                style={{width:'400px', height:'70px',backgroundColor:'white'}}
                 />
                 <div style={{display:'flex', justifyContent:'flex-end', alignItems:'flex-end',vh:'5px'}}>
                 <button  type="submit" style={{height:'1.5rem', width:'3rem', fontWeight:'400', position:'absolute', zIndex:'999',border:'1px solid',backgroundColor:'#00a87e', backgroundColor:'#04AA6D',borderRadius:'4px',marginTop:'2%',width:'100px'}}>Send</button>
