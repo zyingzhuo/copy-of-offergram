@@ -29,11 +29,11 @@ const OneProductPage=()=>{
    
     const sellerId=currentProduct?.sellerId
     const GMapSetting = {
-		width: "1200px",
+		width: "900px",
 		height: "400px",
 		lat: currentProduct?.lat,
 		lng: currentProduct?.lng,
-		zoom: 10,
+		zoom: 11,
 	};
     
 
@@ -82,7 +82,7 @@ const OneProductPage=()=>{
        
         {/* //{spot?.url} */}
         <div>
-            <div className='mainContainer' style={{marginTop:'5%'}}>
+            <div className='mainContainer' style={{marginTop:'8%'}}>
                 <div className='productContainer'>
                     <div style={{color: '#121212', fontWeight:'900', lineHeight:'1.333333'}}>{currentProduct?.name}</div>
                     <div style={{lineHeight:'1.333', fontWeight:'900'}}>${currentProduct?.price}</div>
