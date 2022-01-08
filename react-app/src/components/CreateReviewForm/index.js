@@ -42,6 +42,7 @@ function CreateReviewForm(){
         if(review) {
             history.push(`/products/${productId}`)
         }
+        setComment('')
     }
     return(
     <>
@@ -50,7 +51,7 @@ function CreateReviewForm(){
                   <label>
                     comment
                   </label>
-                  <input
+                  <textarea
                     type="text"
                     value={comment}
                     onChange={(e) => setComment(e.target.value)}

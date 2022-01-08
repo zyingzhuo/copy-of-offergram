@@ -31,7 +31,7 @@ function SingleReview({review, productId}){
 
 return (
     <>
-    <div style={{fontSize:'1.5rem'}}>
+    <div style={{fontSize:'1.5rem', inlineSize:'300px'}}>
         <div>{review?.comment}</div>
         <RatingView ratingValue={review?.rating} size='2rem'/>
         {review?.reviewerId==currentUserId&& (

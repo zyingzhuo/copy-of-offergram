@@ -54,73 +54,90 @@ function EditProductForm({productId}) {
     }
     return (
         <form onSubmit={handleSubmit} >
-        <div  className='createProductContainer'>
+        <div  className='createProductContainer' style={{marginBottom:'3%'}}>
           <label>
             Name of your product
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
           </label>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+            className='input-area'
+          />
+          
           <label>
             Image
-            <input
-              type="url"
-              value={image}
-              onChange={(e) => setImage(e.target.value)}
-              required
-            />
           </label>
+          <input
+            type="url"
+            value={image}
+            onChange={(e) => setImage(e.target.value)}
+            required
+          />
+          
           <label>
             location
-            <select value={location} onChange={(e)=>setLocation(e.target.value)}>
-              <option value="Los Angeles">Los Angeles</option>
-              <option value="New York City">New York City</option>
-            </select>
           </label>
-          <label>Longtitude</label>
-        <input
-						type="number"
-						required
-						value={lng}
-						onChange={(e) => setLng(e.target.value)}
-					/>
-        <label>Latitude</label>
-        <input
-						type="number"
-						required
-						value={lat}
-						onChange={(e) => setLat(e.target.value)}
-					/>
+          <select value={location} onChange={(e)=>setLocation(e.target.value)} className='input-area'>
+            <option value="Los Angeles">Los Angeles</option>
+            <option value="New York City">New York City</option>
+          </select>
+          
+          <label>
+            Longtitude
+          </label>
+          <input
+              type="number"
+              required
+              value={lng}
+              onChange={(e) => setLng(e.target.value)}
+              className='input-area'
+            />
+          <label>
+            Latitude
+          </label>
+          <input
+              type="number"
+              required
+              value={lat}
+              onChange={(e) => setLat(e.target.value)}
+              className='input-area'
+            />
           <label>
             description
-            <input
-              type="text"
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            />
           </label>
+          <input
+            type="text"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+            className='input-area'
+          />
+          
           <label>
             price
-            <input
-              type="number"
-              value={price}
-              onChange={(e) => setPrice(e.target.value)}
-              required
-            />
           </label>
+          <input
+            type="number"
+            value={price}
+            onChange={(e) => setPrice(e.target.value)}
+            required
+            className='input-area'
+          />
+         
           <label>
             category
-            <select value={category} onChange={(e)=>setCategory(e.target.value)}>
+          </label>
+          <select value={category} onChange={(e)=>setCategory(e.target.value)} className='input-area'>
               <option value="Electronics & Media" >Electronics & Media</option>
               <option value="Home & Garden"  >Home & Garden</option>
               <option value="Clothing,Shoes,& Accessories"  >Clothing,Shoes,& Accessories</option>
           </select>
-          </label>
-          <button type="submit" >Confirm edit</button>
+          
+          <button type="submit" className='submit-button'>
+            Confirm edit
+          </button>
         </div>
       </form>
     )

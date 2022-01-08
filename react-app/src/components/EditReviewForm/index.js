@@ -47,26 +47,28 @@ function EditReviewForm({reviewId, seteditReview}){
     return(
     <>
         <form onSubmit={handleSubmit}>
-        <label>
-        comment
-        <input
-          type="text"
-          value={comment}
-          onChange={(e) => setComment(e.target.value)}
-          required
-        />
-      </label>
-       <label>
-       rating
-       {/* <input
-         type="number"
-         value={rating}
-         onChange={(e) => setRating(e.target.value)}
-         required
-       /> */}
-       <Rating onClick={handleRating} ratingValue={rating}/>
-     </label>
-     <button type="submit" >update your review</button>
+            <label>
+            comment
+            <input
+              type="text"
+              value={comment}
+              onChange={(e) => setComment(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+          rating
+          {/* <input
+            type="number"
+            value={rating}
+            onChange={(e) => setRating(e.target.value)}
+            required
+          /> */}
+          <Rating onClick={handleRating} ratingValue={rating}/>
+        </label>
+        <button type="submit" >
+          update your review
+        </button>
      </form>
     </>
    )
