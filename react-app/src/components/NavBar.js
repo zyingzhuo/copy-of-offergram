@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink , useHistory} from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import './NavBar.css'
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,13 +10,49 @@ import { useEffect } from 'react';
 import { getUsers } from '../store/user';
 import { getMessages } from '../store/message';
 import Search from '../components/Search';
+import loadProducts from '../store/product'
+import { getQuery, productsCategory } from '../store/search';
 
 const NavBar = () => {
-
+  const history=useHistory()
   const sessionUser=useSelector(state=>state.session.user)
   const [msgList, setMsgList]=useState(false)
   const dispatch=useDispatch()
+  const allProducts=useSelector(state=>Object.values(state.product))
+  const mediaProducts=allProducts.filter(product=>product.category==='Electronics & Media')
+  const homeProducts=allProducts.filter(product=>product.category==='Home & Garden')
+  const clothesProducts=allProducts.filter(product=>product.category==='Clothing,Shoes,& Accessories')
+ 
   
+  
+  const onClick=async(e)=>{
+    e.preventDefault()
+    await dispatch(productsCategory(mediaProducts))
+    history.push(`/search`)
+}
+
+
+  const onClickC2=async(e)=>{
+    e.preventDefault()
+    await dispatch(productsCategory(homeProducts))
+    history.push(`search`)
+  }
+ 
+  const onClickC3=async(e)=>{
+    e.preventDefault()
+    await dispatch(productsCategory(clothesProducts))
+    history.push(`search`)
+  }
+  // const searchHome=async()=>{
+  //   await dispatch(loadProducts(homeProducts))
+  //   history.push(`/search?query=${Home & Garden}`)
+  // }
+
+  // const searchClothes=async()=>{
+  //   await dispatch(loadProducts(clothesProducts))
+  //   history.push(`/search?query=${Clothing,Shoes,& Accessories}`)
+  // }
+
   useEffect(()=>{
     dispatch(getUsers())
     
@@ -90,16 +126,16 @@ const NavBar = () => {
             )}
           </div>
           <div className='bottom-nav'>
-              <p3 >Electronics&Media</p3>
-              <p3>Home&Garden</p3>
-              <p3>Clothing, Shoes,&Accessories</p3>
-              <p3>Baby&Kids</p3>
-              <p3>Vehicles</p3>
-              <p3>Toys,Games,&Hobbies</p3>
-              <p3>Sports&Outdoors</p3>
-              <p3>Collectibles&Art</p3>
-              <p3>Pet supplies</p3>
-              <p3>More</p3>
+              <p3  onClick={onClick}>Electronics & Media</p3>
+              <p3 onClick={onClickC2}>Home & Garden</p3>
+              <p3 onClick={onClickC3}>Clothing,Shoes,& Accessories</p3>
+              <p3 >Baby&Kids</p3>
+              <p3 >Vehicles</p3>
+              <p3 >Toys,Games,&Hobbies</p3>
+              <p3 >Sports&Outdoors</p3>
+              <p3 >Collectibles&Art</p3>
+              <p3 >Pet supplies</p3>
+              <p3 >More</p3>
           </div>
         </div>
        

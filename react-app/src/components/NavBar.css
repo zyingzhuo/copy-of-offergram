@@ -1,14 +1,5 @@
 .navContainer {
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 3%;
  
-  position: fixed;
-  top: 0;
-  width: 100vw;
-  background-color: white;
-  box-shadow: 0px 0px 30px 1px rgba(0,0,0,0.1); */
   height:13%; 
   width:100% ;
   display: flex;
@@ -154,4 +145,8 @@ background-color: white;
   border-radius:5px;
   height:25px;
   background-color:#f5f5f5
+}
+
+p3{
+  cursor: pointer;
 }
