@@ -12,12 +12,9 @@ search_routes = Blueprint('search_routes', __name__)
 def searchPage():
     query = request.args.get("query")
     city= request.args.get('city').strip()
-    print('!!!!!!!!!', city)
+    
     searchResults=Product.query.filter(Product.name.ilike(f"%{query}%")&(Product.location==city)).all()
-    print('results!!!!!!!!!!!!', searchResults)
+    
     return {
         'products':[product.to_dict() for product in searchResults]
     }
-
-
-    

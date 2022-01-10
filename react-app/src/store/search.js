@@ -11,12 +11,20 @@ export const getQuery=(queryString, city)=>async(dispatch)=>{
     const searchData={}
 
     searchData.products=data.products || []
-   
+    console.log('!!!!!!!!!!!!!!!!!!!!!!!!!',searchData)
     dispatch(setSearch(searchData))
    
     return data.products
 }
 
+export const productsCategory=(productsByCategory)=>(dispatch)=>{
+
+  const searchData={}
+  searchData.products=productsByCategory
+
+  dispatch(setSearch(searchData))
+  
+}
 
 const initialState = {
     products:[]
