@@ -14,11 +14,12 @@ function LandingPage() {
      <>
        <div style={{display:'flex', marginTop:'3.5%'}}>
            <img src='https://i.imgur.com/ZLHGhCu.png' style={{width:'60%', borderRadius:'5px',marginRight:'3%'}}></img>
-           <div style={{textAlign:'center', width:'40%', height:'10%',marginTop:'10%'}}>
-           <h2>Buy and sell locally</h2>
-           <h3>Trusted by users</h3>
+           <div style={{display:'flex', flexDirection:'column',marginTop:'20%', marginLeft:'9%'}}>
+           {/* <div style={{textAlign:'center', width:'40%', height:'10%',marginTop:'10%'}}> */}
+           <h2 style={{fontSize:'4vh'}}>Buy and sell locally</h2>
+           <h2 style={{fontSize:'4vh'}}>Trusted by users</h2>
            
-           <button onClick={onClick} className='demoword' style={{ color:'#00a87e', height:'30%',cursor:'pointer',fontWeight:'bold'}}> Try Demo</button>
+           <button onClick={onClick} className='demoword' style={{ color:'#00a87e', height:'30%',cursor:'pointer',fontWeight:'bold', fontSize:'5vh'}}> Try Demo</button>
            </div>
        </div>
 
