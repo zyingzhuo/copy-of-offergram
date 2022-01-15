@@ -9,6 +9,7 @@ import EditReviewFormProvider from './context/EditReviewContext';
 
 const store = configureStore();
 
+//give react the element tree and the target
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
